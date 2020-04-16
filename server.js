@@ -11,7 +11,7 @@ server.use(bodyParser.json({ type: 'application/json' }))
 
 server.use('/api', apiRouter);
 
-server.listen(3000, (err) => {
+server.listen(80, (err) => {
     if (err) {
         console.log(err);
     } else {
