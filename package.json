@@ -1,0 +1,16 @@
+{
+  "name": "0790",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "dateformat": "^3.0.3",
+    "express": "~4.16.1",
+    "request": "^2.88.2"
+  }
+}
