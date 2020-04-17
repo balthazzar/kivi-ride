@@ -11,6 +11,10 @@ server.use(bodyParser.json({ type: 'application/json' }))
 
 server.use('/api', apiRouter);
 
+server.use('/', (req, res) => {
+    res.end('ok');
+});
+
 server.listen(8080, (err) => {
     if (err) {
         console.log(err);
