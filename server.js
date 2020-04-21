@@ -6,8 +6,16 @@ const apiRouter = require('./api');
 
 const server = express();
 
+var whitelist = ['http://localhost:3000', 'http://kivi-ride.by'];
+
 server.use(cors({
-    origin: 'http://localhost:3000'
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
 }));
 server.use(bodyParser.urlencoded({
     extended: true
