@@ -6,7 +6,7 @@ const apiRouter = require('./api');
 
 const server = express();
 
-var whitelist = ['http://localhost:3000', 'http://kivi-ride.by'];
+var whitelist = ['http://localhost:3000', 'http://kivi-ride.by', 'https://kivi-ride.by'];
 
 server.use(cors({
     origin: (origin, callback) => {
