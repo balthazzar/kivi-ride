@@ -1,15 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const apiRouter = require('./api');
 
 const server = express();
 
-server.use(express.static(__dirname + '/public'));
-server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
+server.use(cors({
+    origin: 'http://localhost:3000'
+}));
+server.use(bodyParser.urlencoded({
+    extended: true
+}));
 server.use(bodyParser.json());
-
 server.use('/api', apiRouter);
 
 server.use('/', (req, res) => {
