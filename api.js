@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const googleApi = require('../services/google-api');
-const ligaTaxiApi= require('../services/ligataxi-api');
+const googleApi = require('./google-api');
+const ligaTaxiApi= require('./ligataxi-api');
 const Promise = require('bluebird');
 
 router.get('/health', function(req, res) {
