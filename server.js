@@ -16,7 +16,7 @@ server.use('/', (req, res) => {
     res.end('ok');
 });
 
-const listener = server.listen(8080, (err) => {
+const listener = server.listen(process.env.PORT, (err) => {
     if (err) {
         console.log(err);
     } else {
