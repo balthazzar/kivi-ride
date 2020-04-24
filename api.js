@@ -6,7 +6,6 @@ const Promise = require('bluebird');
 const nodemailer = require('nodemailer');
 
 router.post('/order-mail', (req, res) => {
-    console.log('email')
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -60,6 +59,34 @@ router.post('/order-mail', (req, res) => {
         Номер телефона: ${req.body.clientPhone || ''}
         ${ [1, 2].includes(+req.body.type) ? 'Время доставки: ' + (req.body.time || '') : ''}
         Комментарий к заказу: ${req.body.comment || ''}`;
+
+    transporter.sendMail({
+        from: "Сайт для заказа такси <kivimenedzer05@gmail.com>",
+        to: 'kivimenedzer05@gmail.com',
+        subject: header,
+        text: messageBody
+    }).catch(console.log);
+
+    res.end();
+});
+
+router.post('/work-mail', (req, res) => {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'kivimenedzer05@gmail.com',
+            pass: '66202722004'
+        }
+    });
+
+    let header = 'Заявка на работу';
+
+    let messageBody = `
+        Имя: ${req.body.name}
+        Телефон: ${req.body.phone}
+        Вид дейтельности: ${req.body.sort}
+        Комментарий: ${req.body.comment}
+    `;
 
     transporter.sendMail({
         from: "Сайт для заказа такси <kivimenedzer05@gmail.com>",
