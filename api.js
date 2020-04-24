@@ -81,10 +81,23 @@ router.post('/work-mail', (req, res) => {
 
     let header = 'Заявка на работу';
 
+    const switchSort = (sort) => {
+        switch (sort) {
+            case 'vod-taxi':
+                return 'водитель такси';
+            case 'vod-cour':
+                return 'водитель курьер';
+            case 'vod-taxi-cour':
+                return 'водительно такси-курьер';
+            case 'cur':
+                return 'пеший курьер';
+        }
+    };
+
     let messageBody = `
         Имя: ${req.body.name}
         Телефон: ${req.body.phone}
-        Вид дейтельности: ${req.body.sort}
+        Вид дейтельности: ${switchSort(req.body.sort)}
         Комментарий: ${req.body.comment}
     `;
 
