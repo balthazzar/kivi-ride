@@ -54,9 +54,29 @@ router.post('/order-mail', (req, res) => {
         }
     });
 
+    const switchCargo = (cargo) => {
+        switch (cargo) {
+            case 1:
+                return 'до 5 кг';
+            case 2:
+                return '5 - 10 кг';
+            case 3:
+                return '10 - 15 кг';
+            case 4:
+                return '15 - 20 кг';
+            case 5:
+                return 'до 20 кг';
+            case 6:
+                return '20 - 40 кг';
+            case 7:
+                return '40 - 60 кг';
+        }
+    };
+
     messageBody += `
         Имя: ${req.body.clientName || ''}
         Номер телефона: ${req.body.clientPhone || ''}
+        ${ [1, 2].includes(+req.body.type) ? 'Груз: ' + switchCargo(+req.body.cargo) : ''}
         ${ [1, 2].includes(+req.body.type) ? 'Время доставки: ' + (req.body.time || '') : ''}
         Комментарий к заказу: ${req.body.comment || ''}`;
 
@@ -103,7 +123,7 @@ router.post('/work-mail', (req, res) => {
 
     transporter.sendMail({
         from: "Сайт для заказа такси <kivimenedzer05@gmail.com>",
-        to: 'kivimenedzer05@gmail.com',
+        to: 'alfa.manevr@yandex.by',
         subject: header,
         text: messageBody
     }).catch(console.log);
