@@ -1,0 +1,52 @@
+
+@import "header.css";
+@import "main.css";
+@import "footer.css";
+
+@import "seckon.css";
+@import "secbuisness.css";
+@import "secnews.css";
+@import "secdostavka.css";
+@import "sectarif.css";
+@import "secwork.css";
+
+@import "modal.css";
+
+/* @font-face {
+    font-family: Determination;
+    src: url("../fonts/Determination2.otf");
+    font-style: normal;
+    font-weight: 400;
+} */
+
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: Roboto,Helvetica,sans-serif;
+
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    @media (max-width: 1180px) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    &-face {
+        position: relative;
+        z-index: 2;
+    }
+}
+

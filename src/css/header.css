@@ -1,0 +1,141 @@
+.header {
+    background-color: black;
+    position: relative;
+    z-index: 3;
+}
+.header-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header__logo {
+    width: 90px;
+    height: 82px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-col {
+
+    &-logo {
+        margin-right: auto;
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+.header-ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+
+    &.active {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0,0,0,.9);
+        margin: 0;
+        padding: 0;
+
+        .header-li {
+            margin-right: 0;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+    }
+
+    @media(max-width: 1023px) {
+        display: none;
+    }
+}
+
+.header-btn {
+    display: none;
+
+
+    &::before {
+        content: '';
+        width: 35px;
+        height: 3px;
+        background: #EEEEEE;
+        display: block;
+        transform: translateY(12px);
+        transition: all .3s;
+    }
+
+    &::after {
+        content: '';
+        width: 35px;
+        height: 3px;
+        background: #EEEEEE;
+        display: block;
+        transform: translateY(-12px);
+        transition: all .3s;
+    }
+
+    span {
+        width: 35px;
+        height: 3px;
+        background: #EEEEEE;
+        display: block;
+        transition: all .3s;
+    }
+
+    &.active {
+        span {
+            transform: scale(0);
+        }
+
+        &::before {
+            transform: translateY(12px) rotate(45deg);
+            position: relative;
+            top: -8px;
+        }
+
+        &:after {
+            transform: translateY(-12px) rotate(-45deg);
+            position: relative;
+            top: 10px;
+        }
+    }
+
+    @media(max-width: 1023px) {
+        display: block;
+    }
+}
+
+.header-a {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #E5F8FF;
+    text-decoration: none;
+    transition: all .3s;
+    &:hover {
+        color: #84B85C;
+    }
+
+    &.active {
+        color: #84B85C;
+    }
+
+}
+
+.header-li:not(:last-child) {
+    margin-right: 25px;
+}
+
+

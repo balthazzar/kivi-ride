@@ -1,0 +1,388 @@
+<section class="main">
+  <div class="modal">
+      <div class="modal-text">
+        <div class="modal-icon"></div>
+        Заказ принят! С Вами свяжется ближайший курьер!
+      </div>
+  </div>
+  <div class="video-bg">
+    <video width="100%" height="auto" preload="auto" autoplay="autoplay" loop="loop" >
+        <source src="img/speed3.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="container">
+    <div class="main-row">
+      <div class="main-col main-col-logos">
+        <div class="main-title">Двигайся в стиле</div>
+        <div class="main-leftLogo"></div>
+        <div class="main-description">Сервис личных курьеров и водителей</div>
+        <div class="main-disc">
+          Сервис работает в тестовом режиме. Оплата наличными и на расчетный счет. Для подробностей звоните менеджеру <a href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
+        </div>
+      </div>
+      <div class="main-col main-col-form">
+          <div class="tab">
+            <button class="tablinks active" value="devilery">Пеший курьер</button>
+            <button class="tablinks" value="devilerytaxi">Авто курьер</button>
+            <button class="tablinks" value="taxi">Такси</button>
+          </div>
+        <div class="main-forms">
+          <div class="main-dev devilery active">
+            <form action="" class="form form-send1">
+              <input hidden name="type" value="1">
+              <div class="form-wrapper">
+                <div class="field">
+                  <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/дом/корпус " required>
+                  <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд/этаж">
+                  <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/офис">
+                </div>
+                <div class="field">
+                  <input class="field-input" type="text" name="point" placeholder="Доставить улица/дом/корпус">
+                  <input class="field-input field-input-podezd" type="text" name="pointEntrance" placeholder="Подъезд/этаж">
+                  <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/офис">
+                </div>
+                <div class="newfield"></div>
+                <div class="field">
+                  <button type="button" class="btn-add">Добавить адрес</button>
+                </div>
+                <div class="field">
+                  <input class="field-input client-name" type="text" maxlength="20" name="clientName" placeholder="Ваше имя" required>
+                </div>
+                <div class="field">
+                  <input class="field-input phone-number" type="text" name="clientPhone" required>
+                </div>
+                <div class="field">
+                  <input type="radio" name="cargo" id="cargo1" value="1">
+                  <label class="field-input" for="cargo1">До 5 кг</label>
+                  <input type="radio" name="cargo" id="cargo2" value="2">
+                  <label class="field-input" for="cargo2">5 - 10 кг</label>
+                  <input type="radio" name="cargo" id="cargo3" value="3">
+                  <label class="field-input" for="cargo3">10 - 15 кг</label>
+                  <input type="radio" name="cargo" id="cargo4" value="4">
+                  <label class="field-input" for="cargo4">15 - 20 кг</label>
+                </div>
+                <div class="field">
+                  <div class="dropdown">
+                    <div class="select">
+                      <span> Сегодня </span>
+                      <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="date" value="">
+                    <ul class="dropdown-menu date">
+                    </ul>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="dropdown">
+                    <div class="select">
+                      <span> Сейчас </span>
+                      <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="minF" value="Сейчас">
+                    <ul class="dropdown-menu minF">
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <div class="select">
+                      <span> Неважно </span>
+                      <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="minT" value="Неважно">
+                    <ul class="dropdown-menu minT">
+                    </ul>
+                  </div>
+                </div>
+                <div class="field">
+                  <textarea class="field-textarea" type="text" name="comment" placeholder="Напишите, что и когда привезти" rows="2" required></textarea>
+                </div>
+                <div class="field">
+                  <button type="submit" class="btn-send">7р. Отправить заказ</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="main-dev devilerytaxi">
+            <form action="" class="form form-send2">
+              <input hidden name="type" value="2">
+              <div class="form-wrapper">
+                <div class="field">
+                  <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/ дом/ корпус " required>
+                  <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд/ этаж">
+                  <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/ офис">
+                </div>
+                <div class="field">
+                  <input class="field-input" type="text" name="point" placeholder="Доставить улица/ дом/ корпус">
+                  <input class="field-input field-input-podezd" type="text" name="pointEntrance" placeholder="Подъезд/ этаж">
+                  <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/ офис">
+                </div>
+                <div class="newfield"></div>
+                <div class="field">
+                  <button type="button" class="btn-add">Добавить адрес</button>
+                </div>
+                <div class="field">
+                  <input class="field-input client-name" type="text" maxlength="20" name="clientName" placeholder="Ваше имя" required>
+                </div>
+                <div class="field">
+                  <input class="field-input phone-number" type="text" name="clientPhone" required>
+                </div>
+                <div class="field">
+                  <input type="radio" name="cargo" id="cargo5" value="5">
+                  <label class="field-input" for="cargo5">До 20 кг</label>
+                  <input type="radio" name="cargo" id="cargo6" value="6">
+                  <label class="field-input" for="cargo6">20 - 40 кг</label>
+                  <input type="radio" name="cargo" id="cargo7" value="7">
+                  <label class="field-input" for="cargo7">40 - 60 кг</label>
+                </div>
+                <div class="field">
+                  <div class="dropdown">
+                    <div class="select">
+                      <span> Сегодня </span>
+                      <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="date" value="">
+                    <ul class="dropdown-menu date">
+                    </ul>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="dropdown">
+                    <div class="select">
+                      <span> 00:00 </span>
+                      <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="minF" value="00:00">
+                    <ul class="dropdown-menu minF">
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <div class="select">
+                      <span> 00:00 </span>
+                      <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="minT" value="00:00">
+                    <ul class="dropdown-menu minT">
+                    </ul>
+                  </div>
+                </div>
+                <div class="field">
+                  <textarea class="field-textarea" type="text" name="comment" placeholder="Напишите, что и когда привезти" rows="2" required></textarea>
+                </div>
+                <div class="field">
+                  <button type="submit" class="btn-send">12,5р. Отправить заказ</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="main-dev taxi">
+            <form action="" class="form form-send3">
+              <input hidden name="type" value="3">
+              <div class="form-wrapper">
+                <div class="field">
+                  <input class="field-input pickup-point" name="point" type="text" placeholder="Откуда везем " required>
+                  <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд">
+                </div>
+                <div class="field">
+                  <input class="field-input" type="text" name="point" placeholder="Куда везем">
+                  <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд">
+                </div>
+                <div class="newfield"></div>
+                <div class="field">
+                  <button type="button" class="btn-add">Добавить адрес</button>
+                </div>
+                <div class="field">
+                  <input class="field-input client-name" type="text" name="clientName" placeholder="Ваше имя" required>
+                </div>
+                <div class="field">
+                  <input class="field-input phone-number" type="text" name="clientPhone" required>
+                </div>
+                <div class="field">
+                  <textarea class="field-textarea taxi-input" type="text" name="comment" placeholder="Комментарий к заказу" rows="2" required></textarea>
+                </div>
+                <div class="field">
+                  <button type="submit" class="btn-send">Такси от 3.3 рублей</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="main-downBlock">
+          <a href="/news1.php" target="_blank" class="main-downBlock-text active">Запуск сервиса<br> доставки в Минске</a>
+          <a href="/buisness.php" target="_blank" class="main-downBlock-text">Выгодное предложение<br> для бизнеса</a>
+          <a href="/dostavka.php" target="_blank" class="main-downBlock-text">Доставка курьером<br> и на авто</a>
+          <a href="/tarif.php" target="_blank" class="main-downBlock-text">Вызвать такси в Минске<br> по доступным ценам </a>
+          <a href="/work.php" target="_blank" class="main-downBlock-text"> Работа курьером<br> в Минске </a>
+          <div class="main-downBlock-icon"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPHFAzv1EpXDfAcMG-Bcj0QXl2_VfJ2M&libraries=places&callback=initMap" async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.1/locale/ru.min.js"></script>
+
+<script>
+    /*Dropdown Menu*/
+    $('.dropdown').click(function () {
+        $(this).attr('tabindex', 1).focus();
+        $(this).toggleClass('active');
+        $(this).find('.dropdown-menu').slideToggle(300);
+    });
+    $('.dropdown').focusout(function () {
+        $(this).removeClass('active');
+        $(this).find('.dropdown-menu').slideUp(300);
+    });
+    $('.dropdown .dropdown-menu li').click(function () {
+        $(this).parents('.dropdown').find('span').text($(this).text());
+        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+    });
+    /*End Dropdown Menu*/
+
+
+    $('.phone-number').mask('+375 (00) 000 00 00', {
+        placeholder: "+375 (__) ___ __ __"
+    });
+
+    $('.client-name').mask('AAAAAAAAAAAAAAAAAAAA', {'translation': {
+            A: {
+                pattern: /[А-Яа-я]/
+            }
+        }
+    });
+
+    function initMap() {
+    var inputs = $('.searchTextField');
+    var options = {
+        componentRestrictions: {country: 'by'}
+    };
+
+    $(inputs).each(function (i, element) {
+
+    var autocomplete = new google.maps.places.Autocomplete(element, options);
+
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        var place = autocomplete.getPlace();
+        });
+    });
+  }
+
+
+    $(document).ready(function() {
+        var liArray = '';
+
+        for (var i = 0; i <= 7; i++) {
+            var date = moment().add(i, 'days').format('DD MMMM');
+
+            liArray += '<li id=\"' + date + '\"> ' + (i ? date : 'Сегодня') + ' </li>';
+        }
+
+        $('.date').each(function(i, elem) {
+            elem.innerHTML = liArray;
+            $(elem).parents('.dropdown').find('input').attr('value', moment().format('DD MMMM'));
+        });
+
+        liArray = '';
+
+        var startHour = moment().format('HH');
+        var startMinutes = moment().format('mm');
+
+        if (+startMinutes < 50 && +startMinutes >= 20) {
+            startHour = +startHour + 1;
+            startMinutes = '00';
+        } else if (+startMinutes >= 50) {
+            startHour = +startHour + 1;
+            startMinutes = '30';
+        } else if (+startMinutes < 20) {
+            startMinutes = '30';
+        }
+
+        for (var i = 0; i <= 47; i++) {
+            var date = moment(startHour + ':' + startMinutes, 'HH:mm').add(i * 30, 'minutes').format('HH:mm');
+            if (date === '00:00') break;
+
+            liArray += '<li id=\"' + date  + '\"> ' + date + ' </li>';
+        }
+
+        $('.minF').each(function(i, elem) {
+            elem.innerHTML = '<li id=\"Сейчас\">Сейчас</li>' + liArray;
+        });
+
+        liArray = '';
+
+        for (var i = 0; i <= 47; i++) {
+            var date = moment().startOf('day').add(i * 30, 'minutes').format('HH:mm');
+
+            liArray += '<li id=\"' + date  + '\"> ' + date + ' </li>';
+        }
+
+        $('.minT').each(function(i, elem) {
+            elem.innerHTML = '<li id=\"Неважно\">Неважно</li>' + liArray;
+        });
+
+
+        $('.dropdown .dropdown-menu li').click(function () {
+            $(this).parents('.dropdown').find('span').text($(this).text());
+            $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+
+            if ($(this).parents('.dropdown').find('.date').length) {
+                console.log($(this).parents('.dropdown').find('.date'));
+                if ($(this).attr('id') === moment().format('DD MMMM')) {
+                    liArray = '';
+
+                    var startHour = moment().format('HH');
+                    var startMinutes = moment().format('mm');
+
+                    if (+startMinutes < 50 && +startMinutes >= 20) {
+                        startHour = +startHour + 1;
+                        startMinutes = '00';
+                    } else if (+startMinutes >= 50) {
+                        startHour = +startHour + 1;
+                        startMinutes = '30';
+                    } else if (+startMinutes < 20) {
+                        startMinutes = '30';
+                    }
+
+                    for (var i = 0; i <= 47; i++) {
+                        var date = moment(startHour + ':' + startMinutes, 'HH:mm').add(i * 30, 'minutes').format('HH:mm');
+
+                        if (date === '00:00') break;
+                        liArray += '<li id=\"' + date  + '\"> ' + date + ' </li>';
+                    }
+
+                    $('.minF').each(function(i, elem) {
+                        elem.innerHTML = '<li id=\"Сейчас\">Сейчас</li>' + liArray;
+                    });
+
+                    $('.minF').parents('.dropdown').find('span').text('Сейчас');
+                    $('.minF').parents('.dropdown').find('input').attr('value', 'Сейчас');
+
+                } else {
+                    liArray = '';
+
+                    for (var i = 0; i <= 47; i++) {
+                        var date = moment().startOf('day').add(i * 30, 'minutes').format('HH:mm');
+
+                        liArray += '<li id=\"' + date  + '\"> ' + date + ' </li>';
+                    }
+
+                    $('.minF').each(function(i, elem) {
+                        elem.innerHTML = liArray;
+                    });
+
+                    $('.minF').parents('.dropdown').find('span').text('00:00');
+                    $('.minF').parents('.dropdown').find('input').attr('value', '00:00');
+                }
+
+                $('.dropdown .dropdown-menu li').click(function () {
+                    $(this).parents('.dropdown').find('span').text($(this).text());
+                    $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+                });
+            }
+        });
+    });
+
+
+
+</script>

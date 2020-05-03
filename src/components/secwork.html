@@ -1,0 +1,99 @@
+<div class="work">
+  <div class="container">
+
+    <div class="work-row">
+      <div class="work-col work-col-text">
+        <h1>Работа у нас</h1>
+        <p>Работа с нами — это свобода управлять своим временем и доходом</p>
+        <form action="" class="work-form" method="POST">
+          <div class="field">
+            <input type="text" class="work-input client-name" name="name" maxlength="20" placeholder="Ваше имя" required>
+          </div>
+          <div class="field">
+            <input type="text" class="work-input phone-number" name="phone" required>
+          </div>
+          <div class="field">
+            <div class="dropdown work-input">
+              <div class="select">
+                <span> Выберите вид деятельности </span>
+                <i class="fa fa-chevron-left"></i>
+              </div>
+              <input type="hidden" name="sort">
+              <ul class="dropdown-menu">
+                <li id="vod-taxi">Водитель такси</li>
+                <li id="vod-cour">Водитель-курьер</li>
+                <li id="vod-taxi-cour">Водитель такси-курьер</li>
+                <li id="cur">Пеший курьер</li>
+              </ul>
+            </div>
+          </div>
+          <!--div class="custom-select">
+            <select name="sort">
+              <option value="vod-taxi">Водитель такси</option>
+              <option value="vod-cour">Водитель-курьер</option>
+              <option value="vod-taxi-cour">Водитель такси-курьер</option>
+              <option value="cur">Пеший курьер</option>
+            </select>
+          </div-->
+          <div class="field">
+            <input type="text" class="work-input" name="comment" placeholder="Комментарий">
+          </div>
+          <div class="field">
+            <input type="submit" class="work-btn" value="Отправить">
+          </div>
+        </form>
+      </div>
+      <div class="work-col work-col-img">
+        <div class="work-img work-img-1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal">
+    <div class="modal-text">
+      <div class="modal-icon"></div>
+      Спасибо
+    </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script>
+  $(document).ready(function($) {
+      /*Dropdown Menu*/
+      $('.dropdown').click(function () {
+          $(this).attr('tabindex', 1).focus();
+          $(this).toggleClass('active');
+          $(this).find('.dropdown-menu').slideToggle(300);
+      });
+      $('.dropdown').focusout(function () {
+          $(this).removeClass('active');
+          $(this).find('.dropdown-menu').slideUp(300);
+      });
+      $('.dropdown .dropdown-menu li').click(function () {
+          $(this).parents('.dropdown').find('span').text($(this).text());
+          $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+      });
+      /*End Dropdown Menu*/
+
+
+      $('.dropdown-menu li').click(function () {
+          var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
+              msg = '<span class="msg">Hidden input value: ';
+          $('.msg').html(msg + input + '</span>');
+      });
+
+      $('.phone-number').mask('+375 (00) 000 00 00', {
+          placeholder: "+375 (__) ___ __ __"
+      });
+
+      $('.client-name').mask('AAAAAAAAAAAAAAAAAAAA', {'translation': {
+              A: {
+                  pattern: /[А-Яа-я]/
+              }
+          }
+      });
+  });
+
+</script>

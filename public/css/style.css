@@ -116,16 +116,15 @@
 .header-li:not(:last-child) {
     margin-right: 25px;
 }
-.main{
-
+.main {
     height: 750px;
-    /* background-image: url(../src/../img/speed2.png); */
+    /* background-image: url(../src/img/speed2.png); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover
 }
 @media(max-width:1023px){
-.main{
+.main {
       height: auto;
       background-image: none;
       background: linear-gradient(117.93deg, rgba(13, 135, 189, 0.3) 4.59%, rgba(132, 184, 92, 0.3) 95.47%)
@@ -371,7 +370,7 @@
           overflow: auto;
         }
 .main .btn-add {
-      background-image: url(../src/../img/fab.png);
+      background-image: url(../img/fab.png);
       background-color: transparent;
       border: none;
       background-size: 50px 50px;
