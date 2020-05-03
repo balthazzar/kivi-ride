@@ -77,7 +77,7 @@ router.post('/order-mail', (req, res) => {
         Имя: ${req.body.clientName || ''}
         Номер телефона: ${req.body.clientPhone || ''}
         ${ [1, 2].includes(+req.body.type) ? 'Груз: ' + switchCargo(+req.body.cargo) : ''}
-        ${ [1, 2].includes(+req.body.type) ? 'Время доставки: ' + (req.body.time || '') : ''}
+        ${ [1, 2].includes(+req.body.type) ? 'Время доставки: ' + (req.body.date + ' с ' + req.body.minF + ' по ' + req.body.minT) : ''}
         Комментарий к заказу: ${req.body.comment || ''}`;
 
     transporter.sendMail({
