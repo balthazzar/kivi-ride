@@ -7,10 +7,11 @@ const nodemailer = require('nodemailer');
 
 router.post('/order-mail', (req, res) => {
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        // service: 'gmail',
+        host: 'smtp.mail.ru',
         auth: {
-            user: 'kivimenedzer05@gmail.com',
-            pass: '66202722004'
+            user: 'kivi-ride@mail.ru',
+            pass: '66202722004kivi'
         }
     });
 
@@ -81,7 +82,7 @@ router.post('/order-mail', (req, res) => {
         Комментарий к заказу: ${req.body.comment || ''}`;
 
     transporter.sendMail({
-        from: "Сайт для заказа такси <kivimenedzer05@gmail.com>",
+        from: "Сайт для заказа такси <kivi-ride@mail.ru>",
         to: 'kivimenedzer05@gmail.com',
         subject: header,
         text: messageBody

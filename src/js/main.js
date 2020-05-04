@@ -121,6 +121,7 @@ var jQuery = require('jquery');
             }
         });
 
+/*
         $.ajax('https://checkout.bepaid.by/ctp/api/checkouts', {
             type: 'POST',
             data: {
@@ -151,6 +152,7 @@ var jQuery = require('jquery');
                 console.log(err);
             }
         });
+*/
 
 
         $.ajax('/api/order-mail', {
