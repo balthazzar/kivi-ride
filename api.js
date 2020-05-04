@@ -6,6 +6,7 @@ const Promise = require('bluebird');
 const nodemailer = require('nodemailer');
 
 router.post('/order-mail', (req, res) => {
+    console.log('order request');
     const transporter = nodemailer.createTransport({
         // service: 'gmail',
         host: 'smtp.mail.ru',
@@ -86,7 +87,7 @@ router.post('/order-mail', (req, res) => {
         to: 'kivimenedzer05@gmail.com',
         subject: header,
         text: messageBody
-    }).catch(console.log);
+    }).then(console.log).catch(console.log);
 
     res.end();
 });
