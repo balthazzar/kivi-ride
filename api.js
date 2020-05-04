@@ -6,13 +6,11 @@ const Promise = require('bluebird');
 const nodemailer = require('nodemailer');
 
 router.post('/order-mail', (req, res) => {
-    console.log('order request');
     const transporter = nodemailer.createTransport({
-        // service: 'gmail',
-        host: 'smtp.mail.ru',
+        service: 'gmail',
         auth: {
-            user: 'kivi-ride@mail.ru',
-            pass: '66202722004kivi'
+            user: 'kivimenedzer05@gmail.com',
+            pass: '66202722004'
         }
     });
 
@@ -83,11 +81,11 @@ router.post('/order-mail', (req, res) => {
         Комментарий к заказу: ${req.body.comment || ''}`;
 
     transporter.sendMail({
-        from: "Сайт для заказа такси <kivi-ride@mail.ru>",
+        from: "Сайт для заказа такси <kivimenedzer05@gmail.com>",
         to: 'kivimenedzer05@gmail.com',
         subject: header,
         text: messageBody
-    }).then(console.log).catch(console.log);
+    }).catch(console.log);
 
     res.end();
 });
@@ -215,6 +213,10 @@ router.delete('/cancel/:orderId', function(request, response) {
         orderId,
         reason
     }).then(response.json).catch(console.log);
+});
+
+router.get('/success', function(request, response) {
+    console.log(request.query)
 });
 
 module.exports = router;

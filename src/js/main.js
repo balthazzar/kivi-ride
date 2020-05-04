@@ -121,40 +121,42 @@ var jQuery = require('jquery');
             }
         });
 
-/*
+        console.log(body.cost)
+
+        var paymentBody = {
+            "checkout": {
+                "version": 2.1,
+                "test": true,
+                "transaction_type": "payment",
+                "order": {
+                    "description": "Оплата kivi-ride",
+                    "currency": "BYN",
+                    "amount": 10
+                },
+                "settings": {}
+            }
+        };
+
         $.ajax('https://checkout.bepaid.by/ctp/api/checkouts', {
             type: 'POST',
-            data: {
-                "checkout": {
-                    "version": 2.1,
-                    "test": true,
-                    "transaction_type": "payment",
-                    "attempts": 3,
-                    "settings": {
-                        "success_url": "http://127.0.0.1:4567/success",
-                        "decline_url": "http://127.0.0.1:4567/decline",
-                        "fail_url": "http://127.0.0.1:4567/fail",
-                        "cancel_url": "http://127.0.0.1:4567/cancel",
-                        "button_text": "Оплатить",
-                        "button_next_text": "Вернуться в магазин",
-                        "language": "ru",
-                    },
-                    "order": {
-                        "currency": "BYN",
-                        "amount": body.cost
-                    }
-                }
+            data: JSON.stringify(paymentBody),
+            headers: {
+                "Content-Type": 'application/json; utf-8',
+                "Accept": 'application/json',
+                "Authorization": "Basic MTAzNTk6ZmYxZjVjMzQ3MWQ1NWU1NjNiZjliNTVhYjEwNDYzN2EzNzAyMjhiY2UzYjIwMzAzYjljZjhlMjdhM2I4OGI1MQ=="
             },
             success: function(res) {
+                location.replace(res.checkout.redirect_url);
                 console.log(res);
             },
             error: function(err) {
                 console.log(err);
             }
         });
-*/
 
 
+
+/*
         $.ajax('/api/order-mail', {
             type: 'POST',
             data: body,
@@ -170,6 +172,7 @@ var jQuery = require('jquery');
                 }, 1500)
             }
         });
+*/
 
         $('.newfield').each(function(inx,el){
             while (el.firstChild) {
