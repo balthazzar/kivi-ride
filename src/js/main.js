@@ -165,13 +165,14 @@ var jQuery = require('jquery');
                 switch (+body.type) {
                     case 1:
                     case 2:
-                        $($modal).find('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется ближайший курьер!';
+                        $('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется ближайший курьер!';
                         break;
                     case 3:
-                        $($modal).find('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется менеджер!';
+                        $('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется менеджер!';
                         break;
                 }
 
+                console.log($('.modal-inner-text')[0].innerHTML);
                 $modal.style.cssText = " opacity: 1; z-index: 5;"
 
                 setTimeout(function() {
