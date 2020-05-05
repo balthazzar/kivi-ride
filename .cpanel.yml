@@ -2,5 +2,5 @@
 deployment:
   tasks:
     - export REPOPATH=/home/a7890by/repositories/kivi-ride/*
-    - export SITEPATH=/home/a7890by/kivi-ride/
+    - export SITEPATH=/home/a7890by/kivi-ride.by/
     - /bin/rsync -rav --exclude '.git' --exclude '.cpanel.yml' --del $REPOPATH $SITEPATH
