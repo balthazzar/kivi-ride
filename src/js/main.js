@@ -121,8 +121,6 @@ var jQuery = require('jquery');
             }
         });
 
-        console.log(body.cost)
-
         var paymentBody = {
             "checkout": {
                 "version": 2.1,
@@ -137,6 +135,7 @@ var jQuery = require('jquery');
             }
         };
 
+/*
         $.ajax('https://checkout.bepaid.by/ctp/api/checkouts', {
             type: 'POST',
             data: JSON.stringify(paymentBody),
@@ -153,10 +152,8 @@ var jQuery = require('jquery');
                 console.log(err);
             }
         });
+*/
 
-
-
-/*
         $.ajax('/api/order-mail', {
             type: 'POST',
             data: body,
@@ -165,6 +162,16 @@ var jQuery = require('jquery');
 
                 var $modal = document.querySelector('.modal');
 
+                switch (+body.type) {
+                    case 1:
+                    case 2:
+                        $($modal).find('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется ближайший курьер!';
+                        break;
+                    case 3:
+                        $($modal).find('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется менеджер!';
+                        break;
+                }
+
                 $modal.style.cssText = " opacity: 1; z-index: 5;"
 
                 setTimeout(function() {
@@ -172,7 +179,7 @@ var jQuery = require('jquery');
                 }, 1500)
             }
         });
-*/
+
 
         $('.newfield').each(function(inx,el){
             while (el.firstChild) {
