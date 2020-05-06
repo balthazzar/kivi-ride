@@ -6,8 +6,24 @@ const apiRouter = require('./api');
 
 const server = express();
 
-var whitelist = ['http://localhost:3000', 'http://kivi-ride.by', 'https://kivi-ride.by'];
+// var whitelist = ['http://localhost:3000', 'http://kivi-ride.by', 'https://kivi-ride.by'];
 
+server.use((req, res, next) => {
+    if (req.protocol === 'http' || req.get('host').contains('.www')) {
+        return res.redirect('https://' + req.get('host').replace('.www') + req.originalUrl);
+    }
+
+    next();
+});
+
+server.use('/index(.html)?', (req, res) => {
+    res.redirect('/');
+});
+
+server.use('/*.html', (req, res) => {
+    console.log(req.originalUrl.replace('.html', ''));
+    res.redirect(`${req.originalUrl.replace('.html', '')}`);
+});
 server.use('/', express.static('public', { extensions: ['html'] }));
 
 /*
