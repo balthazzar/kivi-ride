@@ -32,6 +32,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '573730836773949');
     fbq('track', 'PageView');
+	fbq('track', 'CompleteRegistration');
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=573730836773949&ev=PageView&noscript=1"
@@ -141,7 +142,7 @@
         <div class="main-leftLogo"></div>
         <div class="main-description">Сервис личных курьеров и водителей</div>
         <div class="main-disc">
-          Сервис работает в тестовом режиме. Оплата наличными и на расчетный счет. Для подробностей звоните менеджеру <a href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
+          Сервис работает в тестовом режиме. Оплата наличными и на расчетный счет. Для подробностей звоните менеджеру <a onclick="yaCounter55726756.reachGoal('tel'); gtag('event', 'click', { 'event_category' : 'button_tel', 'event_label' : 'zvonok'});" href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
         </div>
       </div>
       <div class="main-col main-col-form">
@@ -228,7 +229,7 @@
                   <label class="field-input" for="payment3">Карта</label>
                 </div-->
                 <div class="field">
-                  <button type="submit" class="btn-send">7р. Отправить заказ</button>
+                  <button type="submit" onclick="yaCounter55726756.reachGoal('peshiy_kurer'); gtag('event', 'click', {'event_category' : 'button_peshiy','event_label' : 'kurer'});" class="btn-send">7р. Отправить заказ</button>
                 </div>
               </div>
             </form>
@@ -300,7 +301,7 @@
                   <textarea class="field-textarea" type="text" name="comment" placeholder="Напишите, что и когда привезти" rows="2" required></textarea>
                 </div>
                 <div class="field">
-                  <button type="submit" class="btn-send">12,5р. Отправить заказ</button>
+                  <button type="submit" onclick="yaCounter55726756.reachGoal('dostavka'); gtag('event', 'click', {'event_category' : 'button_dostavka','event_label' : 'otpravit'});" class="btn-send">12,5р. Отправить заказ</button>
                 </div>
               </div>
             </form>
@@ -331,7 +332,7 @@
                   <textarea class="field-textarea taxi-input" type="text" name="comment" placeholder="Комментарий к заказу" rows="2" required></textarea>
                 </div>
                 <div class="field">
-                  <button type="submit" class="btn-send">Такси от 3.3 рублей</button>
+                  <button type="submit" onclick="yaCounter55726756.reachGoal('taxi'); gtag('event', 'click', {'event_category' : 'button_taxi','event_label' : 'zakazat'});" class="btn-send">Такси от 3.3 рублей</button>
                 </div>
               </div>
             </form>
