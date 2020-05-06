@@ -50,7 +50,7 @@
         <counts>
           <entry key="css" value="22" />
           <entry key="html" value="139" />
-          <entry key="js" value="8305" />
+          <entry key="js" value="8319" />
           <entry key="json" value="42" />
           <entry key="yml" value="3" />
         </counts>
@@ -60,7 +60,7 @@
           <entry key="CSS" value="22" />
           <entry key="HTML" value="139" />
           <entry key="JSON" value="42" />
-          <entry key="JavaScript" value="8305" />
+          <entry key="JavaScript" value="8319" />
           <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
@@ -71,8 +71,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+            <state relative-caret-position="313">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -338,7 +338,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60364000" />
+    <option name="totallyTimeSpent" value="60864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -631,8 +631,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        <state relative-caret-position="313">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

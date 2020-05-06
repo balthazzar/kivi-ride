@@ -8,22 +8,6 @@ const server = express();
 
 // var whitelist = ['http://localhost:3000', 'http://kivi-ride.by', 'https://kivi-ride.by'];
 
-server.use((req, res, next) => {
-    if (req.protocol === 'http' || req.get('host').includes('www.')) {
-        return res.redirect('https://' + req.get('host').replace('www.', '') + req.originalUrl);
-    }
-
-    next();
-});
-
-server.use('/index(.html)?', (req, res) => {
-    return res.redirect('/');
-});
-
-server.use('/*.html', (req, res) => {
-    console.log(req.originalUrl.replace('.html', ''));
-    res.redirect(`${req.originalUrl.replace('.html', '')}`);
-});
 server.use('/', express.static('public', { extensions: ['html'] }));
 
 /*
