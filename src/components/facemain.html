@@ -30,6 +30,7 @@
           <div class="main-dev devilery active">
             <form action="" class="form form-send1">
               <input hidden name="type" value="1">
+              <input hidden name="cost" value="7">
               <div class="form-wrapper">
                 <div class="field">
                   <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/дом/корпус " required>
@@ -95,14 +96,14 @@
                 <div class="field">
                   <textarea class="field-textarea" type="text" name="comment" placeholder="Напишите, что и когда привезти" rows="2" required></textarea>
                 </div>
-                <!--div class="field">
+                <div class="field">
                   <input type="radio" name="payment" id="payment1" value="1" checked>
                   <label class="field-input" for="payment1">Наличные</label>
-                  <input type="radio" name="payment" id="payment2" value="2">
-                  <label class="field-input" for="payment2">Р/с</label>
-                  <input type="radio" name="payment" id="payment3" value="3">
+                  <input type="radio" name="payment" id="payment3" value="2">
                   <label class="field-input" for="payment3">Карта</label>
-                </div-->
+                  <input type="radio" name="payment" id="payment2" value="3">
+                  <label class="field-input" for="payment2">Р/с</label>
+                </div>
                 <div class="field">
                   <button type="submit" class="btn-send">7р. Отправить заказ</button>
                 </div>
@@ -276,8 +277,33 @@
     });
   }
 
+    function findGetParameter(parameterName) {
+        var result = null,
+            tmp = [];
+        location.search
+            .substr(1)
+            .split("&")
+            .forEach(function (item) {
+                tmp = item.split("=");
+                if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            });
+        console.log(result);
+        return result;
+    }
 
     $(document).ready(function() {
+        if (findGetParameter('success')) {
+            var $modal = document.querySelector('.modal');
+
+            $('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется ближайший курьер!';
+
+            $modal.style.cssText = " opacity: 1; z-index: 5;"
+
+            setTimeout(function() {
+                $modal.style.cssText = " opacity: 0; z-index: -1;"
+            }, 1500)
+        }
+
         var liArray = '';
 
         for (var i = 0; i <= 7; i++) {

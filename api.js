@@ -4,8 +4,9 @@ const googleApi = require('./google-api');
 const ligaTaxiApi= require('./ligataxi-api');
 const Promise = require('bluebird');
 const nodemailer = require('nodemailer');
+const request = require('superagent');
 
-router.post('/order-mail', (req, res) => {
+function sendEmail(req) {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -73,21 +74,67 @@ router.post('/order-mail', (req, res) => {
         }
     };
 
+    const switchPayment = (payment) => {
+        switch (payment) {
+            case 1:
+                return 'Наличные';
+            case 2:
+                return 'Карта';
+            case 3:
+                return 'Р/с';
+        }
+    };
+
     messageBody += `
         Имя: ${req.body.clientName || ''}
         Номер телефона: ${req.body.clientPhone || ''}
         ${ [1, 2].includes(+req.body.type) ? 'Груз: ' + switchCargo(+req.body.cargo) : ''}
         ${ [1, 2].includes(+req.body.type) ? 'Время доставки: ' + (req.body.date + ' с ' + req.body.minF + ' по ' + req.body.minT) : ''}
+        Тип оплаты: ${switchPayment(+req.body.payment)}
+        Стоимость: ${req.body.cost}р.
         Комментарий к заказу: ${req.body.comment || ''}`;
 
-    transporter.sendMail({
+    return transporter.sendMail({
         from: "Сайт для заказа такси <kivimenedzer05@gmail.com>",
         to: 'kivimenedzer05@gmail.com',
         subject: header,
         text: messageBody
-    }).catch(console.log);
+    });
+}
 
-    res.end();
+router.post('/order-mail', (req, res) => {
+    console.log(req.body.payment, req.body.cost)
+    if (+req.body.payment === 2 && +req.body.cost) {
+        var paymentBody = {
+            "checkout": {
+                "version": 2.1,
+                "test": true,
+                "transaction_type": "payment",
+                "order": {
+                    "description": "Оплата kivi-ride",
+                    "currency": "BYN",
+                    "amount": +req.body.cost * 100
+                },
+                "settings": {
+                    "success_url": "http://127.0.0.1:3000/api/success?body=", //  + encodeURIComponent(JSON.stringify(req.body)),
+                    "fail_url": "http://127.0.0.1:3000/api/fail",
+                    "language": "en"
+                }
+            }
+        };
+
+        request.post('https://checkout.bepaid.by/ctp/api/checkouts')
+            .send(paymentBody)
+            .set('Content-Type', 'application/json; utf-8')
+            .set('Accept', 'application/json')
+            .set('Authorization', 'Basic MTAzNTk6ZmYxZjVjMzQ3MWQ1NWU1NjNiZjliNTVhYjEwNDYzN2EzNzAyMjhiY2UzYjIwMzAzYjljZjhlMjdhM2I4OGI1MQ==')
+            .end((err, resp) => {
+                res.json(err || resp.body)
+            });
+
+    } else {
+        sendEmail(req).then(() => res.end()).catch(console.log);
+    }
 });
 
 router.post('/work-mail', (req, res) => {
@@ -216,7 +263,13 @@ router.delete('/cancel/:orderId', function(request, response) {
 });
 
 router.get('/success', function(request, response) {
-    console.log(JSON.stringify(request, null, 4))
+    sendEmail({
+        body: JSON.parse(request.query.body)
+    }).then(() => response.redirect('/?success=true')).catch(console.log);
+});
+
+router.get('/fail', function(request, response) {
+    response.redirect('/?success=false');
 });
 
 module.exports = router;
