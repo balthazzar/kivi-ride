@@ -117,7 +117,7 @@
     margin-right: 25px;
 }
 .main {
-    height: 750px;
+    height: 900px;
     /* background-image: url(../src/img/speed2.png); */
     background-position: center;
     background-repeat: no-repeat;
@@ -303,7 +303,7 @@
         display: block;
       }
 .main .form {
-      padding: 30px 50px
+      padding: 30px 50px 10px
     }
 @media(max-width: 530px){
 

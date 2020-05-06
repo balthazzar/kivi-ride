@@ -216,7 +216,7 @@ router.delete('/cancel/:orderId', function(request, response) {
 });
 
 router.get('/success', function(request, response) {
-    console.log(request.query)
+    console.log(JSON.stringify(request, null, 4))
 });
 
 module.exports = router;

@@ -131,9 +131,12 @@ var jQuery = require('jquery');
                     "currency": "BYN",
                     "amount": 10
                 },
-                "settings": {}
+                "settings": {
+                    "success_url": "https://kivi-ride.by/api/success"
+                }
             }
         };
+
 
 /*
         $.ajax('https://checkout.bepaid.by/ctp/api/checkouts', {
@@ -154,6 +157,8 @@ var jQuery = require('jquery');
         });
 */
 
+
+
         $.ajax('/api/order-mail', {
             type: 'POST',
             data: body,
@@ -172,7 +177,6 @@ var jQuery = require('jquery');
                         break;
                 }
 
-                console.log($('.modal-inner-text')[0].innerHTML);
                 $modal.style.cssText = " opacity: 1; z-index: 5;"
 
                 setTimeout(function() {
@@ -180,7 +184,6 @@ var jQuery = require('jquery');
                 }, 1500)
             }
         });
-
 
         $('.newfield').each(function(inx,el){
             while (el.firstChild) {

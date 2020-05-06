@@ -8,7 +8,7 @@ const server = express();
 
 var whitelist = ['http://localhost:3000', 'http://kivi-ride.by', 'https://kivi-ride.by'];
 
-server.use('/', express.static('public'));
+server.use('/', express.static('public', { extensions: ['html'] }));
 
 /*
 server.use(cors({
