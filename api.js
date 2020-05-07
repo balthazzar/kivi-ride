@@ -9,6 +9,7 @@ const request = require('superagent');
 const mysql = require("mysql2");
 
 const REDIRECT_URL = 'https://kivi-ride.by';
+const TEST_MODE = false;
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -123,7 +124,7 @@ router.post('/order-mail', (req, res) => {
                         const paymentBody = {
                             "checkout": {
                                 "version": 2.1,
-                                "test": true,
+                                "test": TEST_MODE,
                                 "transaction_type": "payment",
                                 "order": {
                                     "description": "Оплата kivi-ride",
