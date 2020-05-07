@@ -255,7 +255,7 @@
       }
 .main-forms {
       width: 488px;
-      min-height: 497px;
+      min-height: 400px;
       background: rgba(255,255,255, 0.7);
       border-radius: 0px 0px 10px 10px;
       margin-bottom: 15px
@@ -313,8 +313,23 @@
     }
       }
 .main .form-wrapper {
-      max-height: 670px;
+      max-height: 850px;
       overflow-y: auto
+    }
+.main .promocode-field {
+      display: flex;
+      color: rgb(38, 46, 54);
+      margin-bottom: 20px;
+      margin-left: 4.5%;
+    }
+.main .promocode-label {
+      padding: 5px;
+      width: 35%;
+      font-size: 0.75rem;
+    }
+.main .promocode-input {
+      padding: 5px;
+      width: 20%;
     }
 .main .field {
       display: flex;
@@ -325,7 +340,7 @@
           border-bottom: 1px solid rgba(38, 46, 54, 0.2);
           background: transparent;
           font-size: 0.75rem;
-          line-height: 1.1875rem;
+          line-height: 1rem;
           color: rgb(38, 46, 54);
           padding: 5px;
           margin-right: 15px;
@@ -1290,7 +1305,6 @@
     background-image: url(../img/icon_succes.svg);
     width: 80px;
     height: 80px;
-    background-image: url(../img/icon_succes.svg);
     background-size: cover;
     margin: 0 auto 30px;
   }

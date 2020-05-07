@@ -125,7 +125,7 @@
 
     &-forms {
       width: 488px;
-      min-height: 497px;
+      min-height: 400px;
       background: rgba(255,255,255, 0.7);
       border-radius: 0px 0px 10px 10px;
       margin-bottom: 15px;
@@ -183,8 +183,26 @@
     }
 
     .form-wrapper {
-      max-height: 670px;
+      max-height: 850px;
       overflow-y: auto
+    }
+
+    .promocode-field {
+      display: flex;
+      color: rgb(38, 46, 54);
+      margin-bottom: 20px;
+      margin-left: 4.5%;
+    }
+
+    .promocode-label {
+      padding: 5px;
+      width: 35%;
+      font-size: 12px;
+    }
+
+    .promocode-input {
+      padding: 5px;
+      width: 20%;
     }
 
     .field {
@@ -196,7 +214,7 @@
           border-bottom: 1px solid rgba(38, 46, 54, 0.2);
           background: transparent;
           font-size: 12px;
-          line-height: 19px;
+          line-height: 16px;
           color: rgb(38, 46, 54);
           padding: 5px;
           margin-right: 15px;

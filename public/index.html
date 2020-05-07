@@ -142,7 +142,7 @@
         <div class="main-leftLogo"></div>
         <div class="main-description">Сервис личных курьеров и водителей</div>
         <div class="main-disc">
-          Сервис работает в тестовом режиме. Оплата наличными и на расчетный счет. Для подробностей звоните менеджеру <a onclick="yaCounter55726756.reachGoal('tel'); gtag('event', 'click', { 'event_category' : 'button_tel', 'event_label' : 'zvonok'});" href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
+          Сервис работает в тестовом режиме. Оплата только наличными! Скоро будет готово мобильное приложение. Ждите новостей! Для подробностей звоните менеджеру  <a onclick="yaCounter55726756.reachGoal('tel'); gtag('event', 'click', { 'event_category' : 'button_tel', 'event_label' : 'zvonok'});" href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
         </div>
       </div>
       <div class="main-col main-col-form">
@@ -155,14 +155,15 @@
           <div class="main-dev devilery active">
             <form action="" class="form form-send1">
               <input hidden name="type" value="1">
+              <input class="cost" hidden name="cost" value="7">
               <div class="form-wrapper">
                 <div class="field">
-                  <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/дом/корпус " required>
+                  <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/ дом/ корпус " required>
                   <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд/этаж">
                   <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/офис">
                 </div>
                 <div class="field">
-                  <input class="field-input" type="text" name="point" placeholder="Доставить улица/дом/корпус">
+                  <input class="field-input" type="text" name="point" placeholder="Доставить улица/ дом/ корпус">
                   <input class="field-input field-input-podezd" type="text" name="pointEntrance" placeholder="Подъезд/этаж">
                   <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/офис">
                 </div>
@@ -174,7 +175,9 @@
                   <input class="field-input client-name" type="text" maxlength="20" name="clientName" placeholder="Ваше имя" required>
                 </div>
                 <div class="field">
+                  <div></div>
                   <input class="field-input phone-number" type="text" name="clientPhone" required>
+                  <div></div>
                 </div>
                 <div class="field">
                   <input type="radio" name="cargo" id="cargo1" value="1">
@@ -220,14 +223,18 @@
                 <div class="field">
                   <textarea class="field-textarea" type="text" name="comment" placeholder="Напишите, что и когда привезти" rows="2" required></textarea>
                 </div>
-                <!--div class="field">
+                <div class="field">
                   <input type="radio" name="payment" id="payment1" value="1" checked>
                   <label class="field-input" for="payment1">Наличные</label>
-                  <input type="radio" name="payment" id="payment2" value="2">
-                  <label class="field-input" for="payment2">Р/с</label>
-                  <input type="radio" name="payment" id="payment3" value="3">
+                  <input type="radio" name="payment" id="payment3" value="2">
                   <label class="field-input" for="payment3">Карта</label>
-                </div-->
+                  <input type="radio" name="payment" id="payment2" value="3">
+                  <label class="field-input" for="payment2">Р/с</label>
+                </div>
+                <div class="promocode-field">
+                  <label class="promocode-label" for="promocode">Ввести промокод: </label>
+                  <input type="text" id="promocode" class="promocode-input" maxlength="4">
+                </div>
                 <div class="field">
                   <button type="submit" onclick="yaCounter55726756.reachGoal('peshiy_kurer'); gtag('event', 'click', {'event_category' : 'button_peshiy','event_label' : 'kurer'});" class="btn-send">7р. Отправить заказ</button>
                 </div>
@@ -240,12 +247,12 @@
               <div class="form-wrapper">
                 <div class="field">
                   <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/ дом/ корпус " required>
-                  <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд/ этаж">
+                  <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд/этаж">
                   <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/ офис">
                 </div>
                 <div class="field">
                   <input class="field-input" type="text" name="point" placeholder="Доставить улица/ дом/ корпус">
-                  <input class="field-input field-input-podezd" type="text" name="pointEntrance" placeholder="Подъезд/ этаж">
+                  <input class="field-input field-input-podezd" type="text" name="pointEntrance" placeholder="Подъезд/этаж">
                   <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/ офис">
                 </div>
                 <div class="newfield"></div>
@@ -299,6 +306,18 @@
                 </div>
                 <div class="field">
                   <textarea class="field-textarea" type="text" name="comment" placeholder="Напишите, что и когда привезти" rows="2" required></textarea>
+                </div>
+                <div class="field">
+                  <input type="radio" name="payment" id="payment4" value="1" checked>
+                  <label class="field-input" for="payment4">Наличные</label>
+                  <input type="radio" name="payment" id="payment5" value="2">
+                  <label class="field-input" for="payment5">Карта</label>
+                  <input type="radio" name="payment" id="payment6" value="3">
+                  <label class="field-input" for="payment6">Р/с</label>
+                </div>
+                <div class="promocode-field">
+                  <label class="promocode-label" for="promocode1">Ввести промокод: </label>
+                  <input type="text" id="promocode1" class="promocode-input" maxlength="4">
                 </div>
                 <div class="field">
                   <button type="submit" onclick="yaCounter55726756.reachGoal('dostavka'); gtag('event', 'click', {'event_category' : 'button_dostavka','event_label' : 'otpravit'});" class="btn-send">12,5р. Отправить заказ</button>
@@ -401,8 +420,45 @@
     });
   }
 
+    function findGetParameter(parameterName) {
+        var result = null,
+            tmp = [];
+        location.search
+            .substr(1)
+            .split("&")
+            .forEach(function (item) {
+                tmp = item.split("=");
+                if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            });
+        console.log(result);
+        return result;
+    }
 
     $(document).ready(function() {
+        if (findGetParameter('success') == 'true') {
+            var $modal = document.querySelector('.modal');
+
+            $('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется ближайший курьер!';
+            $('.modal-icon')[0].style.cssText = " background-image: url(../img/icon_succes.svg);";
+
+            $modal.style.cssText = " opacity: 1; z-index: 5;"
+
+            setTimeout(function() {
+                $modal.style.cssText = " opacity: 0; z-index: -1;"
+            }, 3000)
+        } else if (findGetParameter('success') == 'false') {
+            var $modal = document.querySelector('.modal');
+
+            $('.modal-inner-text')[0].innerHTML = 'Ошибка при обработке транзакции! Пожалуйста, попробуйте еще раз или выберите другой тип оплаты!';
+            $('.modal-icon')[0].style.cssText = " background-image: url(../img/icon_fail.svg);";
+
+            $modal.style.cssText = " opacity: 1; z-index: 5;"
+
+            setTimeout(function() {
+                $modal.style.cssText = " opacity: 0; z-index: -1;"
+            }, 3000)
+        }
+
         var liArray = '';
 
         for (var i = 0; i <= 7; i++) {
@@ -526,9 +582,9 @@
       <div class="footer-col">
         <div class="footer-up">
           Для корпоративных клиентов<br>
-          <a href="tel:+375297007979">+375 (29) 700 79 79</a><br>
+          <a onclick="yaCounter55726756.reachGoal('tel2'); gtag('event', 'click',  'event_category' : 'button_tel2', 'event_label' : 'otpravit'});" href="tel:+375297007979">+375 (29) 700 79 79</a><br>
           Отдел техподдержки<br>
-          <a href="tel:+375296620272">+375 (29) 662 02 72</a><br>
+          <a onclick="yaCounter55726756.reachGoal('tel'); gtag('event', 'click', { 'event_category' : 'button_tel', 'event_label' : 'zvonok'});" href="tel:+375296620272">+375 (29) 662 02 72</a><br>
         </div>
         <div>
           <a href="mailto:service@kivi-ride.by">service@kivi-ride.by</a> - служба поддержки<br>
