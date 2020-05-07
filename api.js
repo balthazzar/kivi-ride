@@ -6,6 +6,17 @@ const Promise = require('bluebird');
 const nodemailer = require('nodemailer');
 const request = require('superagent');
 
+const mysql = require("mysql2");
+
+const REDIRECT_URL = 'https://kivi-ride.by';
+
+const connection = mysql.createConnection({
+    host: "localhost",
+    user: "a7890by_kivi_ride",
+    database: "a7890by_kivi_ride",
+    password: "Balthazar199_AnD"
+});
+
 function sendEmail(req) {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -92,6 +103,7 @@ function sendEmail(req) {
         ${ [1, 2].includes(+req.body.type) ? 'Время доставки: ' + (req.body.date + ' с ' + req.body.minF + ' по ' + req.body.minT) : ''}
         Тип оплаты: ${switchPayment(+req.body.payment)}
         Стоимость: ${req.body.cost}р.
+        Промокод: ${req.body.promocode || ''}
         Комментарий к заказу: ${req.body.comment || ''}`;
 
     return transporter.sendMail({
@@ -103,34 +115,42 @@ function sendEmail(req) {
 }
 
 router.post('/order-mail', (req, res) => {
-    console.log(req.body.payment, req.body.cost)
     if (+req.body.payment === 2 && +req.body.cost) {
-        var paymentBody = {
-            "checkout": {
-                "version": 2.1,
-                "test": true,
-                "transaction_type": "payment",
-                "order": {
-                    "description": "Оплата kivi-ride",
-                    "currency": "BYN",
-                    "amount": +req.body.cost * 100
-                },
-                "settings": {
-                    "success_url": "http://127.0.0.1:3000/api/success?body=", //  + encodeURIComponent(JSON.stringify(req.body)),
-                    "fail_url": "http://127.0.0.1:3000/api/fail",
-                    "language": "en"
-                }
-            }
-        };
+        connection.query(`insert into track (body) values (?)`, [JSON.stringify(req.body)], (err) => {
+            if (!err) {
+                connection.query('select last_insert_id()', (error, response) => {
+                    if (!error) {
+                        const paymentBody = {
+                            "checkout": {
+                                "version": 2.1,
+                                "test": true,
+                                "transaction_type": "payment",
+                                "order": {
+                                    "description": "Оплата kivi-ride",
+                                    "currency": "BYN",
+                                    "amount": +req.body.cost * 100
+                                },
+                                "settings": {
+                                    "success_url": `${REDIRECT_URL}/api/success?trackingId=${response[0]['last_insert_id()']}`,
+                                    "fail_url": `${REDIRECT_URL}/api/fail`,
+                                    "decline_url": `${REDIRECT_URL}/api/fail`,
+                                    "language": "ru"
+                                }
+                            }
+                        };
 
-        request.post('https://checkout.bepaid.by/ctp/api/checkouts')
-            .send(paymentBody)
-            .set('Content-Type', 'application/json; utf-8')
-            .set('Accept', 'application/json')
-            .set('Authorization', 'Basic MTAzNTk6ZmYxZjVjMzQ3MWQ1NWU1NjNiZjliNTVhYjEwNDYzN2EzNzAyMjhiY2UzYjIwMzAzYjljZjhlMjdhM2I4OGI1MQ==')
-            .end((err, resp) => {
-                res.json(err || resp.body)
-            });
+                        request.post('https://checkout.bepaid.by/ctp/api/checkouts')
+                            .send(paymentBody)
+                            .set('Content-Type', 'application/json; utf-8')
+                            .set('Accept', 'application/json')
+                            .set('Authorization', 'Basic MTAzNTk6ZmYxZjVjMzQ3MWQ1NWU1NjNiZjliNTVhYjEwNDYzN2EzNzAyMjhiY2UzYjIwMzAzYjljZjhlMjdhM2I4OGI1MQ==')
+                            .end((err, resp) => {
+                                res.json(err || resp.body)
+                            });
+                    }
+                });
+            }
+        });
 
     } else {
         sendEmail(req).then(() => res.end()).catch(console.log);
@@ -263,9 +283,32 @@ router.delete('/cancel/:orderId', function(request, response) {
 });
 
 router.get('/success', function(request, response) {
-    sendEmail({
-        body: JSON.parse(request.query.body)
-    }).then(() => response.redirect('/?success=true')).catch(console.log);
+    connection.query('select body from track where trackingId = ?', [request.query.trackingId], (err, res) => {
+        if (!err) {
+            const body = {
+                ...JSON.parse(res[0].body),
+                uid: request.query.uuid,
+                token: request.query.token,
+                trackingId: request.query.trackingId
+            };
+
+            sendEmail({
+                body
+            }).then(() => response.redirect('/?success=true')).catch((err) => {
+                console.log(err);
+
+                const timer = setInterval(() => {
+                    sendEmail({
+                        body
+                    }).then(() => {
+                        clearInterval(timer);
+                        response.redirect('/?success=true');
+                    })
+                }, 5000);
+            });
+
+        }
+    });
 });
 
 router.get('/fail', function(request, response) {

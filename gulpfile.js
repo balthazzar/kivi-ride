@@ -52,12 +52,7 @@ gulp.task('js', ()=> {
 
 gulp.task('browser-sync', ()=> {
     browserSync.init({
-        files: ['./index.html'],
-        server: {
-            baseDir: "./",
-            directory: true
-        },
-
+        files: ['./public/index.html']
     });
 });
 

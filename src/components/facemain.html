@@ -17,7 +17,7 @@
         <div class="main-leftLogo"></div>
         <div class="main-description">Сервис личных курьеров и водителей</div>
         <div class="main-disc">
-          Сервис работает в тестовом режиме. Оплата наличными и на расчетный счет. Для подробностей звоните менеджеру <a href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
+          Сервис работает в тестовом режиме. Оплата только наличными! Скоро будет готово мобильное приложение. Ждите новостей! Для подробностей звоните менеджеру <a href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
         </div>
       </div>
       <div class="main-col main-col-form">
@@ -30,7 +30,7 @@
           <div class="main-dev devilery active">
             <form action="" class="form form-send1">
               <input hidden name="type" value="1">
-              <input hidden name="cost" value="7">
+              <input class="cost" hidden name="cost" value="7">
               <div class="form-wrapper">
                 <div class="field">
                   <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/дом/корпус " required>
@@ -50,7 +50,9 @@
                   <input class="field-input client-name" type="text" maxlength="20" name="clientName" placeholder="Ваше имя" required>
                 </div>
                 <div class="field">
+                  <div></div>
                   <input class="field-input phone-number" type="text" name="clientPhone" required>
+                  <div></div>
                 </div>
                 <div class="field">
                   <input type="radio" name="cargo" id="cargo1" value="1">
@@ -103,6 +105,10 @@
                   <label class="field-input" for="payment3">Карта</label>
                   <input type="radio" name="payment" id="payment2" value="3">
                   <label class="field-input" for="payment2">Р/с</label>
+                </div>
+                <div class="promocode-field">
+                  <label class="promocode-label" for="promocode">Ввести промокод: </label>
+                  <input type="text" id="promocode" class="promocode-input" maxlength="4">
                 </div>
                 <div class="field">
                   <button type="submit" class="btn-send">7р. Отправить заказ</button>
@@ -175,6 +181,18 @@
                 </div>
                 <div class="field">
                   <textarea class="field-textarea" type="text" name="comment" placeholder="Напишите, что и когда привезти" rows="2" required></textarea>
+                </div>
+                <div class="field">
+                  <input type="radio" name="payment" id="payment4" value="1" checked>
+                  <label class="field-input" for="payment4">Наличные</label>
+                  <input type="radio" name="payment" id="payment5" value="2">
+                  <label class="field-input" for="payment5">Карта</label>
+                  <input type="radio" name="payment" id="payment6" value="3">
+                  <label class="field-input" for="payment6">Р/с</label>
+                </div>
+                <div class="promocode-field">
+                  <label class="promocode-label" for="promocode1">Ввести промокод: </label>
+                  <input type="text" id="promocode1" class="promocode-input" maxlength="4">
                 </div>
                 <div class="field">
                   <button type="submit" class="btn-send">12,5р. Отправить заказ</button>
@@ -292,16 +310,28 @@
     }
 
     $(document).ready(function() {
-        if (findGetParameter('success')) {
+        if (findGetParameter('success') == 'true') {
             var $modal = document.querySelector('.modal');
 
             $('.modal-inner-text')[0].innerHTML = 'Заказ принят! С Вами свяжется ближайший курьер!';
+            $('.modal-icon')[0].style.cssText = " background-image: url(../img/icon_succes.svg);";
 
             $modal.style.cssText = " opacity: 1; z-index: 5;"
 
             setTimeout(function() {
                 $modal.style.cssText = " opacity: 0; z-index: -1;"
-            }, 1500)
+            }, 3000)
+        } else if (findGetParameter('success') == 'false') {
+            var $modal = document.querySelector('.modal');
+
+            $('.modal-inner-text')[0].innerHTML = 'Ошибка при обработке транзакции! Пожалуйста, попробуйте еще раз или выберите другой тип оплаты!';
+            $('.modal-icon')[0].style.cssText = " background-image: url(../img/icon_fail.svg);";
+
+            $modal.style.cssText = " opacity: 1; z-index: 5;"
+
+            setTimeout(function() {
+                $modal.style.cssText = " opacity: 0; z-index: -1;"
+            }, 3000)
         }
 
         var liArray = '';
