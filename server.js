@@ -6,7 +6,16 @@ const apiRouter = require('./api');
 
 const server = express();
 
-var whitelist = ['http://localhost:3000', 'http://kivi-ride.by', 'https://kivi-ride.by'];
+// var whitelist = ['http://localhost:3000', 'http://kivi-ride.by', 'https://kivi-ride.by'];
+
+server.use('/index(.html)?', (req, res) => {
+    return res.redirect('/');
+});
+
+server.use('/*.html', (req, res) => {
+    console.log(req.originalUrl.replace('.html', ''));
+    res.redirect(req.originalUrl.replace('.html', ''));
+});
 
 server.use('/', express.static('public', { extensions: ['html'] }));
 

@@ -32,6 +32,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '573730836773949');
     fbq('track', 'PageView');
+	fbq('track', 'CompleteRegistration');
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=573730836773949&ev=PageView&noscript=1"
@@ -141,7 +142,7 @@
         <div class="main-leftLogo"></div>
         <div class="main-description">Сервис личных курьеров и водителей</div>
         <div class="main-disc">
-          Сервис работает в тестовом режиме. Оплата только наличными! Скоро будет готово мобильное приложение. Ждите новостей! Для подробностей звоните менеджеру <a href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
+          Сервис работает в тестовом режиме. Оплата только наличными! Скоро будет готово мобильное приложение. Ждите новостей! Для подробностей звоните менеджеру  <a onclick="yaCounter55726756.reachGoal('tel'); gtag('event', 'click', { 'event_category' : 'button_tel', 'event_label' : 'zvonok'});" href="tel:375296620272">+375&nbsp;29&nbsp;662&nbsp;02&nbsp;72</a>
         </div>
       </div>
       <div class="main-col main-col-form">
@@ -157,12 +158,12 @@
               <input class="cost" hidden name="cost" value="7">
               <div class="form-wrapper">
                 <div class="field">
-                  <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/дом/корпус " required>
+                  <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/ дом/ корпус " required>
                   <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд/этаж">
                   <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/офис">
                 </div>
                 <div class="field">
-                  <input class="field-input" type="text" name="point" placeholder="Доставить улица/дом/корпус">
+                  <input class="field-input" type="text" name="point" placeholder="Доставить улица/ дом/ корпус">
                   <input class="field-input field-input-podezd" type="text" name="pointEntrance" placeholder="Подъезд/этаж">
                   <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/офис">
                 </div>
@@ -235,7 +236,7 @@
                   <input type="text" id="promocode" class="promocode-input" maxlength="4">
                 </div>
                 <div class="field">
-                  <button type="submit" class="btn-send">7р. Отправить заказ</button>
+                  <button type="submit" onclick="yaCounter55726756.reachGoal('peshiy_kurer'); gtag('event', 'click', {'event_category' : 'button_peshiy','event_label' : 'kurer'});" class="btn-send">7р. Отправить заказ</button>
                 </div>
               </div>
             </form>
@@ -246,12 +247,12 @@
               <div class="form-wrapper">
                 <div class="field">
                   <input class="field-input pickup-point" type="text" name="point" placeholder="Забрать улица/ дом/ корпус " required>
-                  <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд/ этаж">
+                  <input class="field-input field-input-podezd" name="pointEntrance" type="text" placeholder="Подъезд/этаж">
                   <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/ офис">
                 </div>
                 <div class="field">
                   <input class="field-input" type="text" name="point" placeholder="Доставить улица/ дом/ корпус">
-                  <input class="field-input field-input-podezd" type="text" name="pointEntrance" placeholder="Подъезд/ этаж">
+                  <input class="field-input field-input-podezd" type="text" name="pointEntrance" placeholder="Подъезд/этаж">
                   <input class="field-input field-input-kv" type="text" name="pointRoom" placeholder="Кв/ офис">
                 </div>
                 <div class="newfield"></div>
@@ -319,7 +320,7 @@
                   <input type="text" id="promocode1" class="promocode-input" maxlength="4">
                 </div>
                 <div class="field">
-                  <button type="submit" class="btn-send">12,5р. Отправить заказ</button>
+                  <button type="submit" onclick="yaCounter55726756.reachGoal('dostavka'); gtag('event', 'click', {'event_category' : 'button_dostavka','event_label' : 'otpravit'});" class="btn-send">12,5р. Отправить заказ</button>
                 </div>
               </div>
             </form>
@@ -350,7 +351,7 @@
                   <textarea class="field-textarea taxi-input" type="text" name="comment" placeholder="Комментарий к заказу" rows="2" required></textarea>
                 </div>
                 <div class="field">
-                  <button type="submit" class="btn-send">Такси от 3.3 рублей</button>
+                  <button type="submit" onclick="yaCounter55726756.reachGoal('taxi'); gtag('event', 'click', {'event_category' : 'button_taxi','event_label' : 'zakazat'});" class="btn-send">Такси от 3.3 рублей</button>
                 </div>
               </div>
             </form>
@@ -581,9 +582,9 @@
       <div class="footer-col">
         <div class="footer-up">
           Для корпоративных клиентов<br>
-          <a href="tel:+375297007979">+375 (29) 700 79 79</a><br>
+          <a onclick="yaCounter55726756.reachGoal('tel2'); gtag('event', 'click',  'event_category' : 'button_tel2', 'event_label' : 'otpravit'});" href="tel:+375297007979">+375 (29) 700 79 79</a><br>
           Отдел техподдержки<br>
-          <a href="tel:+375296620272">+375 (29) 662 02 72</a><br>
+          <a onclick="yaCounter55726756.reachGoal('tel'); gtag('event', 'click', { 'event_category' : 'button_tel', 'event_label' : 'zvonok'});" href="tel:+375296620272">+375 (29) 662 02 72</a><br>
         </div>
         <div>
           <a href="mailto:service@kivi-ride.by">service@kivi-ride.by</a> - служба поддержки<br>
