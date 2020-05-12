@@ -291,6 +291,10 @@
       }
     }
 
+    .btn-send:disabled {
+      background: #dddddd;
+    }
+
     .main-downBlock {
 
       background: rgba(255, 255, 255, 0.7);
